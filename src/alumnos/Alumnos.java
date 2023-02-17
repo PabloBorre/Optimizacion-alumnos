@@ -13,7 +13,7 @@ public class Alumnos {
 
         System.out.println("A continuacion debera introducir el nombre y la nota media de 5 alumnos.");
 
-        pedirDatos(alumnos, entrada); //Creamos una funcion para los datos de cada alumno
+        pedirDatos(alumnos, entrada); //Creamos una funcion para los datos de cada alumnos
         
         System.out.println("Los datos introducidos son los siguientes:");
 

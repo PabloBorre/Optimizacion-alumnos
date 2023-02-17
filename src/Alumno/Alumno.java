@@ -15,7 +15,7 @@ public class Alumno {
     /*
     * Creamos el constructor
     */
-    public Alumno(String nombre, double nota) {
+    public Alumno() {
         this.nombre = nombre;
         this.nota = nota;
     }
