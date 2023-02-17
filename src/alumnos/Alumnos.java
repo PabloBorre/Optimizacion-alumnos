@@ -8,42 +8,56 @@ public class Alumnos {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
-        // Define la estructura, un array de 5 alumnos
-        // pero no crea los objetos
-        Alumno[] alum = new Alumno[5];
+        double sumaDeMedias = 0;
+        Alumno[] alumnos = new Alumno[5];
 
-        // Pide los datos de los alumnos /////////////////////////////////
         System.out.println("A continuacion debera introducir el nombre y la nota media de 5 alumnos.");
 
+        pedirDatos(alumnos, entrada); //Creamos una funcion para los datos de cada alumno
+        
+        System.out.println("Los datos introducidos son los siguientes:");
+
+        sumaDeMedias = muestraDatos(alumnos, sumaDeMedias); //Creamos una funcion para las notas de cada alumno
+
+        System.out.println("La media global de la clase es " + sumaDeMedias / 5); //Mostramos la media final de todos los alumnos
+    }
+
+    /**
+     * Mostramos al alumno correspondiente con su nota media
+     * @param alumnos Este parametro es el objeto alumno
+     * @param sumaDeMedias Este parametro es la suma de las medias de cada alumno
+     * @return 
+     */
+    public static double muestraDatos(Alumno[] alumnos, double sumaDeMedias) {
+        for (int i = 0; i < alumnos.length; i++) {
+            System.out.println("Alumno " + i);
+            System.out.println("Nombre: " + alumnos[i].getNombre());
+            System.out.println("Nota media: " + alumnos[i].getNota());
+            System.out.println("----------------------------");
+
+            sumaDeMedias += alumnos[i].getNota();
+        }
+        return sumaDeMedias;
+    }
+
+    /**
+     * Pedimos los datos de cada alumno
+     * @param alumnos Este parametro es el objeto alumno
+     * @param entrada Este parametro es el escaner
+     * @throws NumberFormatException 
+     */
+    public static void pedirDatos(Alumno[] alumnos, Scanner entrada) throws NumberFormatException {
         String nombreIntroducido;
         double notaIntroducida;
-
         for (int i = 0; i < 5; i++) {
-
-            alum[i] = new Alumno();
+            Alumno alumno = new Alumno();
             System.out.println("Alumno " + i);
             System.out.print("Nombre: ");
             nombreIntroducido = entrada.nextLine();
-            (alum[i]).setNombre(nombreIntroducido);
+            (alumnos[i]).setNombre(nombreIntroducido);
             System.out.print("Nota media: ");
             notaIntroducida = Double.parseDouble(entrada.nextLine());
-            alum[i].setNotaMedia(notaIntroducida);
-        } // for i
-
-        // Muestra los datos de los alumnos /////////////////////////////////
-        System.out.println("Los datos introducidos son los siguientes:");
-
-        double sumaDeMedias = 0;
-
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Alumno " + i);
-            System.out.println("Nombre: " + alum[i].getNombre());
-            System.out.println("Nota media: " + alum[i].getNotaMedia());
-            System.out.println("----------------------------");
-
-            sumaDeMedias += alum[i].getNotaMedia();
-        } // for i
-
-        System.out.println("La media global de la clase es " + sumaDeMedias / 5);
+            alumnos[i].setNota(notaIntroducida);
+        }
     }
 }
