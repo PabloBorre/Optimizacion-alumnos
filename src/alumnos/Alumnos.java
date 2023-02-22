@@ -1,8 +1,13 @@
 package alumnos;
 
+
 import Alumno.Alumno;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author BORREGO
+ */
 public class Alumnos {
 
     public static void main(String[] args) {
@@ -26,7 +31,7 @@ public class Alumnos {
      * Mostramos al alumno correspondiente con su nota media
      * @param alumnos Este parametro es el objeto alumno
      * @param sumaDeMedias Este parametro es la suma de las medias de cada alumno
-     * @return 
+     * @return devuelve la suma de todas las medias
      */
     public static double muestraDatos(Alumno[] alumnos, double sumaDeMedias) {
         for (int i = 0; i < alumnos.length; i++) {
